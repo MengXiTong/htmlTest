@@ -1,0 +1,81 @@
+.header{
+    overflow: hidden;
+    position:fixed;  
+    width:100%;
+}
+.header .nav {
+    float: right;
+    margin-top: 28px;
+    margin-right: 90px;
+}
+.header .nav > a {
+    text-decoration:none;
+    font-size: 16px;
+    color: #FFFFFF;
+    padding: 6px 20px;
+    border-radius: 34px;
+    margin-left: 10px;
+}
+.header .nav .select {
+    border: 1px solid #FFFFFF;
+}
+.content > div{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 119px;
+    padding-bottom: 100px;
+}
+.content .theme{
+    font-size: 30px;
+    color: #333333;
+    width: 100%;
+    text-align: center;
+}
+.content .instru{
+    width: 50%;
+    margin: 0 auto;
+    max-width: 500px;
+    font-size: 20px;
+    color: #666666;
+    line-height: 35px;
+    display: inline-block;
+    text-align: left;
+}
+.content .adv{
+    text-align: center;
+    margin-top: 50px;
+    width: 33%;
+    display: inline-block;
+}
+.content .adv .intro {
+    font-size: 24px;
+    color: #333333;
+    margin-top: 20px;
+}
+.content .adv .sub-intro {
+    font-size: 20px;
+    color: #666666;
+    margin-top: 30px;
+}
+.footer{
+    background: #373D42;
+    width: 100%;
+    overflow: hidden;
+}
+
+.footer .navigation {
+    margin-top: 40px;
+    overflow: hidden;
+}
+
+.footer .navigation > li{
+    float: left;
+    margin-left: 20px;
+}
+
+.footer .navigation > li > a{
+    font-size: 18px;
+    color: #CCCCCC;
+    text-decoration:none;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <title>局部打印案例</title>
+    <script type="text/javascript">   
+        function doPrint() {
+            bdhtml = window.document.body.innerHTML;
+            sprnstr = "<!--startprint-->";
+            eprnstr = "<!--endprint-->";
+            prnhtml = bdhtml.substr(bdhtml.indexOf(sprnstr) + 17);
+            prnhtml = prnhtml.substring(0, prnhtml.indexOf(eprnstr));
+            window.document.body.innerHTML = prnhtml;
+            window.print();
+        }   
+    </script>
+</head>
+
+<body>
+    <p>1不需要打印的地方</p>
+    <p>2这里不要打印啊</p>
+    <!--注意要加上html里star和end的这两个标记-->
+    <div style="position: relative;">
+        <img src="../img/print.jpg" style="width: 25cm;">
+        <div style="position: absolute;top: 1cm;left: 2cm">
+            <!--startprint-->
+            <div style="overflow: hidden;margin-top: 2cm;font-size: 10pt;text-align: left;">
+                <div style="float: left;">
+                    <!-- <div style="overflow: hidden;">
+                    <div style="width: 2.94cm;line-height: 0.6cm;float: left;">发件人账号</div>
+                    <div style="width: 2.9cm;line-height: 0.6cm;float: left;">收件人账号</div>
+                    <div style="width: 2.4cm;line-height: 0.6cm;float: left;">项目代码</div>
+                    <div style="width: 3.3cm;line-height: 0.6cm;float: left;">客户参考号</div>
+                </div> -->
+                    <div style="overflow: hidden;margin-top: 0.9cm">
+                        <div style="width: 2.3cm;margin-left: 2.2cm;float: left;line-height: 0.6cm;background: #FFF" contenteditable="true">发件人姓名</div>
+                        <!-- <div style="width: 2.4cm;float: left;line-height: 0.6cm;margin-left: 1cm;">电话</div> -->
+                        <div style="width: 2.4cm;float: left;line-height: 0.6cm;margin-left: 3.5cm;background: #FFF" contenteditable="true">手机</div>
+                    </div>
+                    <div style="overflow: hidden;margin-top: 4cm">
+                        <div style="width: 2.4cm;margin-left: 8cm;float: left;line-height: 0.6cm;background: #FFF" contenteditable="true">保险金额</div>
+                    </div>
+                    <div style="overflow: hidden;margin-top: 3.6cm;font-size: 8pt">
+                        <div style="width: 1.6cm;margin-left: 0.5cm;float: left;line-height: 0.6cm;background: #FFF" contenteditable="true">日期</div>
+                        <div style="width: 1cm;margin-left: 0.5cm;float: left;line-height: 0.6cm;background: #FFF" contenteditable="true">时间</div>
+                    </div>
+                </div>
+                <div style="float: left;">
+                    <div style="overflow: hidden;margin-top: 1.4cm">
+                        <div style="width: 2cm;margin-left: 2.1cm;float: left;line-height: 0.6cm;background: #FFF" contenteditable="true">收件人姓名</div>
+                        <div style="width: 2.4cm;float: left;line-height: 0.6cm;margin-left: 0.6cm;background: #FFF" contenteditable="true">电话</div>
+                        <div style="width: 2.4cm;float: left;line-height: 0.6cm;margin-left: 0.6cm;background: #FFF" contenteditable="true">手机</div>
+                    </div>
+                    <div style="overflow: hidden;margin-top: 0.12cm">
+                        <div style="width: 8cm;margin-left: 1.4cm;float: left;line-height: 0.6cm;background: #FFF" contenteditable="true">单位名称</div>
+                    </div>
+                    <div style="overflow: hidden;">
+                        <div style="width: 8cm;margin-left: 1.4cm;min-height: 1.4cm;float: left;background: #FFF" contenteditable="true">详细地址</div>
+                    </div>
+                    <div style="overflow: hidden;">
+                        <div style="width: 5cm;margin-left: 1.1cm;float: left;line-height: 0.6cm;background: #FFF" contenteditable="true">城市</div>
+                    </div>
+                    <div style="overflow: hidden;margin-top: 0.2cm">
+                        <div style="width: 1cm;margin-left: 2.5cm;float: left;line-height: 0.6cm;" contenteditable="true">√</div>
+                        <div style="width: 1cm;margin-left: 0.9cm;float: left;line-height: 0.6cm;" contenteditable="true">√</div>
+                    </div>
+                    <div style="overflow: hidden;margin-top: 0.4cm">
+                        <div style="width: 1.3cm;float: left;text-align: center;line-height: 1cm;background: #FFF" contenteditable="true">总件数</div>
+                        <div style="width: 1.9cm;float: left;text-align: center;">
+                            <div style="line-height: 0.6cm;background: #FFF" contenteditable="true">总重量</div>
+                            <div style="line-height: 0.6cm;margin-top: 0.3cm;background: #FFF" contenteditable="true">体积总</div>
+                        </div>
+                        <div style="width: 3.4cm;float: left;height: 1cm;background: #FFF" contenteditable="true">货物描述</div>
+                    </div>
+                </div>
+            </div>
+            <!--endprint-->
+        </div>
+    </div>
+    <button type="button" onclick="doPrint()">打印</button>
+    <p>不打印的地方啊哈哈哈哈</p>
+    <p>2</p>
+</body>
+
+</html>
+
+<style>
+    body,
+    div {
+        margin: 0;
+        padding: 0;
+    }
+</style>

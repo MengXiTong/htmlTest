@@ -1,0 +1,97 @@
+.user-register .content{
+    width: 80vw;
+    margin: auto;
+    margin-top: 72px;
+}
+.user-register .content .title-hy{
+    margin-bottom: 60px;
+    color: #1A253D;
+    font-size: 24px;
+}
+.user-register .content .title-hy > img{
+    width: 35px;
+    height: 33px;
+    margin-right: 7px;
+}
+.user-register .content .title-login{
+    margin-bottom: 40px;
+    color: #1A253D;
+    font-size: 24px;
+}
+.user-register .content .title-login > div{
+    margin-top: 10px;
+    font-size: 14px;
+}
+.user-register .content .content-hint{
+    font-size: 14px;
+    color:#2B98F0;
+}
+.user-register .content .content-hint > svg{
+    width: 18px;
+    height: 27px;
+    margin-right: 4px;
+}
+.user-register .content .content-iphone{
+    font-size: 18px;
+    color: #1A253D;
+    padding: 5px 0;
+    line-height: 24px;
+    border-bottom: 1px solid #2B98F0;
+}
+.user-register .content .content-iphone > input{
+    width: 100%;
+    font-size: 18px;
+    border: 0px;
+}
+.user-register .content .content-iphone > svg{
+    color: #979EB1;
+    width: 20px;
+    height: 20px;
+}
+.user-register .content .content-code{
+    width: 100%;
+    overflow: hidden;
+}
+.user-register .content .content-code > input{
+    width: calc(60% - 12px);
+    margin-right: 10px;
+    font-size: 18px;
+    border-bottom: 1px solid #2B98F0 !important;
+    border: 0px;
+    line-height: 36px;
+}
+.user-register .content .content-code > div{
+    float: right;
+    width: 40%;
+    font-size: 16px;
+    text-align: center;
+    color:#2B98F0;
+    line-height: 34px;
+    border-radius: 100px;
+    border: 1px solid #2B98F0;
+}
+.user-register .content .content-hint1{
+    font-size: 12px;
+    color: red;
+    margin-top: 10px;
+}
+.user-register .content-iphone .triangle {
+    background: #fff;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #000;
+    margin-left: 10px;
+    margin-right: 12px;
+}
+
+.user-register .content .content-btn {
+    line-height: 44px;
+    width: 100%;
+    box-shadow: 0 0 10px 0 rgba(43, 152, 240, 0.50);
+    border-radius: 100px;
+    margin-top: 40px;
+    background:#2B98F0;
+    font-size: 18px;
+    color: #FFF;
+    text-align: center;
+}

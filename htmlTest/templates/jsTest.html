@@ -1,0 +1,164 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        //用来添加Date.format函数操作
+        Date.prototype.format = function (fmt) { //author: meizz  
+            var o = {
+                "M+": this.getMonth() + 1,         //月份  
+                "d+": this.getDate(),          //日  
+                "h+": this.getHours(),          //小时  
+                "m+": this.getMinutes(),         //分  
+                "s+": this.getSeconds(),         //秒  
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度  
+                "S": this.getMilliseconds()       //毫秒  
+            };
+            if (/(y+)/.test(fmt))
+                fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt))
+                    fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+        var i;
+        console.log(i);
+        var oper = {
+            fun: fun,
+            method: method
+        }
+        function fun() {
+            console.log("我触发了");
+            var x = document.getElementById('f1');
+            x.innerHTML = "<p>呵呵呵大</p>";
+            x.style.color = '#00FF00';
+            alert(x.innerText);
+        }
+        function method() {
+            setTimeout(fun, 3000);
+        }
+        function changeTime() {
+            var x = document.getElementById('current-time');
+            x.innerHTML = new Date().format("yyyy-MM-dd hh:mm:ss");
+        }
+        var timer;
+        var isFinish = true;
+        function startChange() {
+            if (isFinish) {
+                timer = setInterval(changeTime, 1000);
+            }
+            else {
+                timer = clearInterval(timer);
+            }
+            isFinish = !isFinish;
+        }
+        function showAlert() {
+            alert("大家好我是div");
+        }
+        var index = 0;
+        function show() {
+            document.getElementById("show-div").innerHTML = index++;
+        }
+    </script>
+</head>
+
+<body>
+    <button id="f1" onclick="oper.method()">大家好我是一段文字1</button>
+    当前时间:
+    <div id="current-time">显示时间</div>
+    <button onclick="startChange()">暂停</button>
+    <div id="show-div" style="width: 100px;height: 100px;background: yellow;" onclick="showAlert()" onmouseout="show()"></div>
+    <div style="border: 1px solid #000;width: 400px;height: 400px;">
+
+    </div>
+    <div style="background: #FF0000;width: 100px;height: 100px;border-radius: 50%;position: relative;">
+        <div class="radio"></div>
+        <div class="radio1"></div>
+    </div>
+    <div style="display: flex;">
+        <div class="lovel"></div>
+        <div class="lover"></div>
+    </div>
+    <ul>
+        <li>张三</li>
+        <li>李四</li>
+        <li>王五</li>
+    </ul>
+    <!--华丽的分割线-->
+    <script>
+        // "use strict";
+        // startChange();
+        // console.log("We are the so-called \"Vikings\" from the north.");
+        // console.log("-----------------------");
+        // let a = "The best things in life are free!";
+        // try {
+        //     console.log(xxxx);
+        // } catch (error) {
+        //     console.log(error);
+        // }
+        var z = 3.14;
+        // delete z;
+        // console.log(z);
+        console.log(document.getElementById("radio").style.borderBottomLeftRadius);
+    </script>
+</body>
+
+</html>
+
+<style>
+    .radio {
+        /* clip: rect(0px, 0px, 50px, 50px); */
+        width: 50px;
+        height: 100px;
+        background: #FF0000;
+        position: absolute;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        transform-origin: 100% 50%;
+        z-index: 2;
+        /* -webkit-animation: an1 2s linear; */
+    }
+
+    .radio1 {
+        /* clip: rect(0px, 0px, 50px, 50px); */
+        width: 50px;
+        height: 100px;
+        background: #00FF00;
+        position: absolute;
+        right: 0px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        transform-origin: 0 50%;
+        z-index: 1;
+        transform: rotate(-60deg);
+        /* -webkit-animation: an1 2s linear; */
+    }
+
+    .lovel {
+        width: 50px;
+        height: 80px;
+        background: #FF0000;
+        border-radius: 25px 25px 0px 0px;
+        transform-origin: 100% 100%;
+        transform: rotate(45deg);
+    }
+
+    .lover {
+        width: 50px;
+        height: 80px;
+        background: #FF0000;
+        border-radius: 25px 25px 0px 0px;
+        transform-origin: 0 100%;
+        transform: rotate(-45deg);
+    }
+
+
+    @-webkit-keyframes an1 {
+        0% {
+            transform: rotate(90deg);
+        }
+        100% {
+            transform: rotate(180deg);
+        }
+    }
+</style>

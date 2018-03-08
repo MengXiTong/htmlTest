@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <link href="https://cdn.bootcss.com/ionic/1.3.2/css/ionic.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/ionic/1.3.2/js/ionic.bundle.min.js"></script>
+</head>
+
+<body ng-app="app">
+    <ion-nav-view></ion-nav-view>
+</body>
+
+<script>
+    console.log("执行了");
+    var app = angular.module('app', ['ionic']);
+    app.controller('myCtrl', function ($scope) {
+        console.log("ctrl执行了");
+        $scope.carname = "Volvo";
+    });
+    app.config(($stateProvider, $urlRouterProvider) => {
+        $stateProvider
+            .state('user', {
+                cache: false,
+                url: '/user',
+                templateUrl: 'show.html',
+                controller: 'myCtrl'
+            });
+        $urlRouterProvider.otherwise('/user');
+    });
+</script>
+
+</html>

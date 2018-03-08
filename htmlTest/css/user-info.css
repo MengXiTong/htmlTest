@@ -1,0 +1,64 @@
+.user-info .line {
+    margin: 0 37px;
+    padding-top: 20px;
+}
+
+.user-info .line .line-son {
+    border-bottom: 1px solid #E4E9F0;
+    padding-bottom: 6px;
+    margin-top: 10px;
+}
+.user-info .line .line-son > svg{
+    width: 12px;
+    height: 21px;
+    margin-left: 10px;
+    fill: #D4D7E2;
+}
+
+.user-info .line .input {
+    font-size: 18px;
+    background: #FFF;
+    border: 0px;
+}
+
+.user-info .svg {
+    width: 20px;
+    height: 24px;
+    margin-right: 9px;
+}
+
+.user-info .line .icon-right {
+    color: #D4D7E2;
+    font-size: 18px;
+    margin-left: 14px;
+}
+
+.user-info .line .btn {
+    line-height: 44px;
+    width: 100%;
+    box-shadow: 0 0 10px 0 rgba(43, 152, 240, 0.50);
+    border-radius: 100px;
+}
+
+.user-info .line .select {
+    fill: #2B98F0;
+}
+
+.user-info .line .unselect {
+    fill: #4E5B7C;
+}
+
+.user-info .ionic-citypicker {
+    padding: 0 !important;
+    border: 0px !important;
+    margin-top: 1px !important;
+    width: 100% !important;
+    line-height: 34px;
+}
+
+.user-info .ionic-citypicker .item-note {
+    color: #1A253D !important;
+    padding: 0 !important;
+    margin-right: -11px;
+    font-size: 18px;
+}

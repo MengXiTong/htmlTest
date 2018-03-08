@@ -1,0 +1,227 @@
+@charset "utf-8";
+/*!
+ * @名称：base.css
+ * @功能：1、重设浏览器默认样式
+ *       2、设置通用原子类
+ */
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+    background:white;
+    color:black;
+}
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+    margin:0;
+    padding:0;
+}
+/* 要注意表单元素并不继承父级 font 的问题 */
+body,button,input,select,textarea {
+    font:12px \5b8b\4f53,arial,sans-serif;
+}
+input,select,textarea {
+    font-size:100%;
+}
+/* 去掉 table cell 的边距并让其边重合 */
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+/* ie bug：th 不继承 text-align */
+th {
+    text-align:inherit;
+}
+/* 去除默认边框 */
+fieldset,img {
+    border:none;
+}
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe {
+    display:block;
+}
+/* 去掉 firefox 下此元素的边框 */
+abbr,acronym {
+    border:none;
+    font-variant:normal;
+}
+/* 一致的 del 样式 */
+del {
+    text-decoration:line-through;
+}
+address,caption,cite,code,dfn,em,th,var {
+    font-style:normal;
+    font-weight:500;
+}
+/* 去掉列表前的标识，li 会继承 */
+ol,ul {
+    list-style:none;
+}
+/* 对齐是排版最重要的因素，别让什么都居中 */
+caption,th {
+    text-align:left;
+}
+/* 来自yahoo，让标题都自定义，适应多个系统应用 */
+h1,h2,h3,h4,h5,h6 {
+    font-size:100%;
+    font-weight:500;
+}
+q:before,q:after {
+    content:'';
+}
+/* 统一上标和下标 */
+sub,sup {
+    font-size:75%;
+    line-height:0;
+    position:relative;
+    vertical-align:baseline;
+}
+sup {
+    top:-0.5em;
+}
+sub {
+    bottom:-0.25em;
+}
+/* 让链接在 hover 状态下显示下划线 */
+a:hover {
+    text-decoration:underline;
+}
+/* 默认不显示下划线，保持页面简洁 */
+ins,a {
+    text-decoration:none;
+}
+/* 去除 ie6 & ie7 焦点点状线 */
+a:focus,*:focus {
+    outline:none;
+}
+/* 清除浮动 */
+.clearfix:before,.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+    overflow:hidden;
+}
+.clearfix {
+    zoom:1; /* for ie6 & ie7 */
+}
+.clear {
+    clear:both;
+    display:block;
+    font-size:0;
+    height:0;
+    line-height:0;
+    overflow:hidden;
+}
+/* 设置显示和隐藏，通常用来与 js 配合 */
+.hide {
+    display:none;
+}
+.block {
+    display:block;
+}
+/* 设置浮动，减少浮动带来的 bug */
+.fl,.fr {
+    display:inline;
+}
+.fl {
+    float:left;
+}
+.fr {
+    float:right;
+}
+
+
+
+
+
+
+/* Empty. Add your own CSS if you like */
+
+/***********SVG************/
+.svgicon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+
+/***********颜色************/
+.bg-none {background: none;}
+.bg-base {background: #F5F7F8;}
+.bg-white{background: #FFF;}
+.bg-blue {background: #2B98F0;}
+.bg-orange{background: #FF741D;}
+.bg-dark-0{background: #1A253D;}
+.bg-dark-1{background: #4E5b8C;}
+.bg-dark-2{background: #979EB1;}
+.bg-dark-3{background: #CFD4E0;}
+.bg-gray-0{background: #E4E9F0;}
+.bg-gray-1{background: #EFF3F6;}
+.bg-gray-2{background: #F5F7F8;}
+.bg-gray-3{background:rgba(52, 63, 88, 0.5);}
+
+.cor-blue{color:#2B98F0;}
+.cor-orange{color: #FF741D;}
+.cor-white{color: #FFF;}
+.cor-dark-0{color: #1A253D;}
+.cor-dark-1{color: #4E5b8C;}
+.cor-dark-2{color: #979EB1;}
+.cor-dark-3{color: #CFD4E0;}
+.cor-gray-0{color: #E4E9F0;}
+.cor-gray-1{color: #EFF3F6;}
+.cor-gray-2{color: #F5F7F8;}
+.cor-gray-3{color:rgba(52, 63, 88, 0.5);}
+
+
+/***********边距************/
+.pd-10 { padding: 10px; }
+.pd-5 { padding: 5px; }
+.pd-0 { padding: 0px; }
+.mg-5 { margin: 5px; }
+.mg-10 { margin: 10px; }
+.bold {font-weight: bold;}
+.italic {font-style: italic;}
+.w100 {width: 100%;}
+
+/***********字体大小************/
+.fsize-10 {font-size: 10px;}
+.fsize-12 {font-size: 12px;}
+.fsize-14 {font-size: 14px;}
+.fsize-16 {font-size: 16px;}
+.fsize-18 {font-size: 18px;}
+.fsize-22 {font-size: 22px;}
+.fsize-24 {font-size: 24px;}
+.fsize-44 {font-size: 44px;}
+
+/***********对齐浮动************/
+.ali-center { text-align: center;}
+.ali-left { text-align: left;}
+.ali-right { text-align: right;}
+.fl{float: left;}
+.fr{float: right;}
+.ver-center {display: -webkit-flex;display: flex;-webkit-align-items: center;align-items: center;}
+.abs-center {display: -webkit-flex; display: flex; -webkit-align-items: center;align-items: center;-webkit-justify-content:center; justify-content:center;}
+
+
+/***********文字换行省略号************/
+.font-ellipsis {text-overflow: ellipsis;overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical; -webkit-line-clamp: 1; white-space: initial;word-break: break-all;}
+.ellipsis-2 {-webkit-line-clamp: 2;}
+.ellipsis-3 {-webkit-line-clamp: 3;}
+.ellipsis-5 {-webkit-line-clamp: 5;}
+
+.highlight {color: #c00;}
+
+/***********无结果************/
+.no-result {
+    background-image: url('../img/none.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    padding-top: 195px;
+    background-size: 150px;
+}
+
+.no-result div {font-size: 16px; color: #B8BFC6; padding: 20px;}
+.copymsg {-webkit-user-select: auto !important;}
