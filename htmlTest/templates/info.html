@@ -8,6 +8,9 @@
                 <a class="ui-tab-son" ng-class="item.isSelect?'tab_select':'tab_unselect'">{{item.name}}</a>
             </div>
         </div>
+        <div ng-if="tabs[0].isSelect">tab1</div>
+        <div ng-if="tabs[1].isSelect">tab2</div>
+        <div ng-if="tabs[2].isSelect">tab3</div>
     </ion-content>
 </ion-view>
 <style>
