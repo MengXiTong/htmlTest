@@ -1,0 +1,40 @@
+<ion-view title="info" class="user-info">
+    <ion-header-bar>
+        我是用户信息界面
+    </ion-header-bar>
+    <ion-content>
+        <div class="row ui-tab pd-0">
+            <div class="col pd-0" ng-repeat="item in tabs" ng-click="oper.tabSelect($index)">
+                <a class="ui-tab-son" ng-class="item.isSelect?'tab_select':'tab_unselect'">{{item.name}}</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+<style>
+    .user-info .ui-tab {
+        height: 44px;
+        line-height: 41px;
+        border-bottom: 1px solid #e4e9f0;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .user-info .pd-0 {
+        padding: 0px;
+    }
+
+    .user-info .ui-tab-son {
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .user-info .tab_select {
+        border-bottom: 3px solid #2B98F0;
+        color: #2B98F0;
+    }
+
+    .user-info .tab_unselect {
+        color: #4E5B7C;
+        border: 0px;
+    }
+</style>
