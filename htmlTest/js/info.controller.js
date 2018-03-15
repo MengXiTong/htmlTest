@@ -1,35 +1,59 @@
-app.controller('infoCtrl', function ($scope) {
-    console.log("infoCtrl执行了");
-    // $scope.carname = "Volvo";
-    $scope.tabs = [
-        { name: 'Tab1' },
-        { name: 'Tab2' },
-        { name: 'Tab3' }
-    ];
+app.controller('infoCtrl', [
+    '$scope',
+    '$resource',
+    function (
+        $scope,
+        $resource
+    ){
+        console.log("infoCtrl执行了");
+        // $scope.carname = "Volvo";
+        $scope.tabs = [
+            { name: 'Tab1' },
+            { name: 'Tab2' },
+            { name: 'Tab3' }
+        ];
 
-    $scope.oper = {
-        tabSelect: tabSelect
-    }
-
-    /* 初始化
-        ---------------------------------------------------------------- */
-    function init() {
-        tabSelect(0);
-    }
-
-    init();
-
-    function tabSelect(index) {
-        if($scope.tabs[index].isSelect){
-            return;
+        $scope.oper = {
+            tabSelect: tabSelect,
+            submit: submit
         }
-        for(var i=0;i<$scope.tabs.length;i++){
-            if(i == index){
-                $scope.tabs[i].isSelect = true;
+
+        /* 初始化
+            ---------------------------------------------------------------- */
+        function init() {
+            tabSelect(0);
+            $scope.result = $resource('http://www.baidu.com',{},{
+                getData:{
+                    method:'GET'
+                },
+                putData:{
+                    method: 'POST'
+                }
+            })
+        }
+
+        init();
+
+        function tabSelect(index) {
+            if ($scope.tabs[index].isSelect) {
+                return;
             }
-            else{
-                $scope.tabs[i].isSelect = false;
+            for (var i = 0; i < $scope.tabs.length; i++) {
+                if (i == index) {
+                    $scope.tabs[i].isSelect = true;
+                }
+                else {
+                    $scope.tabs[i].isSelect = false;
+                }
             }
         }
+
+        function submit(){
+            $scope.result.getData({userId:123},function(resp){
+                console.log(resp);
+            }, function(error){
+                console.log(error);
+            });
+        }
     }
-});
+]);
