@@ -1,9 +1,11 @@
 app.controller('infoCtrl', [
     '$scope',
     '$resource',
+    'helpModalService',
     function (
         $scope,
-        $resource
+        $resource,
+        helpModalService
     ){
         console.log("infoCtrl执行了");
         // $scope.carname = "Volvo";
@@ -49,10 +51,15 @@ app.controller('infoCtrl', [
         }
 
         function submit(){
-            $scope.result.getData({userId:123},function(resp){
-                console.log(resp);
-            }, function(error){
-                console.log(error);
+            // $scope.result.getData({userId:123},function(resp){
+            //     console.log(resp);
+            // }, function(error){
+            //     console.log(error);
+            // });
+            helpModalService.showHelp1({},function(resp){
+
+            },function(error){
+
             });
         }
     }
