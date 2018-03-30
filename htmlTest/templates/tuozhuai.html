@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>适用于手机端触屏拖动效果</title>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular-resource.min.js"></script>
+</head>
+
+<body style="padding:80px 0 0 0;">
+    <div ng-app="app" ng-controller="myCtrl">
+        <div class="tile__list">
+            <img ng-src="{{item}}" ng-repeat="item in img track by $index" oid=1 repeat-finish/>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../js/Sortable.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('app', []);
+        app.controller('myCtrl', function ($scope) {
+            $scope.img = ['../img/2-4-1.png', '../img/2-4-2.png', '../img/2-4-3.png', '../img/2-4-4.png', '../img/2-4-4.png', '../img/2-4-4.png', '../img/2-4-4.png', '../img/2-4-4.png'];
+        });
+        app.directive('repeatFinish', function () {
+            return {
+                link: function (scope, element, attr) {
+                    console.log(scope.$index)
+                    if (scope.$last == true) {
+                        [].forEach.call(document.getElementsByClassName('tile__list'), function (el) {
+                            Sortable.create(el, {
+                                group: 'photo',
+                                animation: 150,
+                                onAdd: function (evt) { console.log('onAdd.foo:', evt); },
+                                onUpdate: function (evt) { console.log('onUpdate.foo:', [evt.item, evt.from]); },
+                                onRemove: function (evt) { console.log('onRemove.foo:', [evt.item, evt.from]); },
+                                onStart: function (evt) { console.log('onStart.foo:', evt); },
+                                onSort: function (evt) { console.log('onStart.foo:', [evt.item, evt.from]); },
+                                onEnd: function (evt) { console.log('onEnd.foo:', [evt.item, evt.from]); }
+                            });
+                        });
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

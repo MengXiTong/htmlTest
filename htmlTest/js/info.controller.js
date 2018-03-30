@@ -46,6 +46,7 @@ app.controller('infoCtrl', [
                     method: 'POST'
                 }
             })
+            getIndicator();
         }
 
         init();
@@ -84,6 +85,25 @@ app.controller('infoCtrl', [
             getWeather().then(function(resp){
                 console.log(resp);
             });
+        }
+
+        function getIndicator(){
+            var date = new Date();
+            var month = date.getMonth()+1;
+            var year = date.getFullYear();
+            var currentMonth = year.toString()+month;
+            if(month==1){
+                previousMonth = (year-1).toString()+12;
+            }
+            else{
+                previousMonth = year.toString();
+                if(--month<10){
+                    previousMonth += '0';
+                }
+                previousMonth += month;
+            }
+            console.log("当前月份",currentMonth);
+            console.log("上个月份",previousMonth);
         }
 
         function getWeather() {
