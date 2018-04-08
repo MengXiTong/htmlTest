@@ -15,8 +15,8 @@
 
 <script>
     console.log("执行了");
-    var app = angular.module('app', ['ionic','ngResource']);
-    app.controller('myCtrl', ['$scope','$state', function ($scope, $state) {
+    var app = angular.module('app', ['ionic', 'ngResource']);
+    app.controller('myCtrl', ['$scope', '$state', function ($scope, $state) {
         console.log("ctrl执行了");
         $scope.carname = "Volvo";
         /* 交互事件
@@ -29,6 +29,7 @@
         function goInfo() {
             $state.go('info');
         }
+
     }]);
     app.config(($stateProvider, $urlRouterProvider) => {
         $stateProvider

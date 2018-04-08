@@ -21,7 +21,8 @@
 <script>
     var app = angular.module('app', []);
     app.controller('myCtrl', ['$scope', function ($scope) {
-        $scope.value = Math.round((415/4678)*100);
+        // $scope.value = Math.round((415/4678)*100);
+        $scope.value = 90;
         $scope.styleLeft = function () {
             var deg = $scope.value * 0.01 * 360 - 180;
             if (deg > 0) {

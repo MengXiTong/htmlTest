@@ -2,10 +2,12 @@ app.controller('infoCtrl', [
     '$scope',
     '$resource',
     'helpModalService',
+    '$state',
     function (
         $scope,
         $resource,
-        helpModalService
+        helpModalService,
+        $state
     ) {
         console.log("infoCtrl执行了");
         // $scope.carname = "Volvo";
@@ -31,7 +33,11 @@ app.controller('infoCtrl', [
             getWeather: {
                 name: "获取当前所在城市天气",
                 fun: getWeatherValue
-            }
+            },
+            testPromise: {
+                name: "多个Promise处理",
+                fun: testPromise
+            },
         }
 
         /* 初始化
@@ -154,6 +160,35 @@ app.controller('infoCtrl', [
                     })
                 });
             });
+        }
+
+        function testPromise() {
+            console.log("testPromise");
+            Promise.all([promise1(),promise2(),promise3()]).then(function () {
+                console.log("发送成功");
+            });
+        }
+
+        function promise1(){
+            var promise1 = new Promise(function (resolve, reject) {
+                console.log("1");
+                resolve();
+            });
+            return promise1;
+        }
+        function promise2(){
+            var promise2 = new Promise(function (resolve, reject) {
+                console.log("2");
+                resolve();
+            });
+            return promise2;
+        }
+        function promise3(){
+            var promise3= new Promise(function (resolve, reject) {
+                console.log("3");
+                resolve();
+            });
+            return promise3;
         }
     }
 ]);
