@@ -12,7 +12,7 @@ app.controller('infoCtrl', [
         console.log("infoCtrl执行了");
         // $scope.carname = "Volvo";
         $scope.tabs = [
-            { name: 'Tab1' },
+            { name: '测试' },
             { name: 'Tab2' },
             { name: 'Tab3' }
         ];
@@ -37,6 +37,12 @@ app.controller('infoCtrl', [
             testPromise: {
                 name: "多个Promise处理",
                 fun: testPromise
+            },
+            testCircular: {
+                name: "圆形进度条",
+                fun: function(){
+                    $state.go('testCircular');
+                }
             },
         }
 

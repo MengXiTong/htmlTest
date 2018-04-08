@@ -1,55 +1,19 @@
-<html>
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
-    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular-resource.min.js"></script>
-</head>
-
-<body>
-    <div class="progress" ng-app="app" ng-controller="myCtrl">
-        <span class="progress-left">
-            <span class="progress-bar" ng-style="styleLeft()"></span>
-        </span>
-        <span class="progress-right">
-            <span class="progress-bar" ng-style="styleRight()"></span>
-        </span>
-        <div class="progress-value">{{value}}%</div>
-    </div>
-</body>
-
-<script>
-    var app = angular.module('app', []);
-    app.controller('myCtrl', ['$scope', function ($scope) {
-        // $scope.value = Math.round((415/4678)*100);
-        $scope.value = 90;
-        $scope.styleLeft = function () {
-            var deg = $scope.value * 0.01 * 360 - 180;
-            if (deg > 0) {
-                var style = {
-                    '-webkit-transform': 'rotate(-' + deg + 'deg)',
-                    'transform': 'rotate(-' + deg + 'deg)'
-                }
-                return style;
-            }
-            return;
-        }
-        $scope.styleRight = function () {
-            var deg = $scope.value * 0.01 * 360;
-            if (deg > 180) {
-                deg = 180;
-            }
-            var style = {
-                '-webkit-transform': 'rotate(-' + deg + 'deg)',
-                'transform': 'rotate(-' + deg + 'deg)'
-            }
-            return style;
-        }
-    }]);
-</script>
-
-</html>
-
+<ion-view title="圆形进度条" class="testCircular">
+    <ion-header-bar>
+        圆形进度条
+    </ion-header-bar>
+    <ion-content>
+        <div class="progress">
+            <span class="progress-left">
+                <span class="progress-bar" ng-style="styleLeft()"></span>
+            </span>
+            <span class="progress-right">
+                <span class="progress-bar" ng-style="styleRight()"></span>
+            </span>
+            <div class="progress-value">{{value}}%</div>
+        </div>
+    </ion-content>
+</ion-view>
 <style type="text/css">
     .progress {
         width: 100px;
