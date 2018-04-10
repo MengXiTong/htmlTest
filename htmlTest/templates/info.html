@@ -9,10 +9,15 @@
             </div>
         </div>
         <div ng-if="tabs[0].isSelect">
+            <iframe id="iframeId" ng-src="login.html"></iframe>
             <div class="btn-submit" ng-click="value.fun()" ng-repeat="(key, value) in study">{{value.name}}</div>
         </div>
-        <div ng-if="tabs[1].isSelect">tab2</div>
-        <div ng-if="tabs[2].isSelect">tab3</div>
+        <div ng-if="tabs[1].isSelect">
+            当前时间： {{currentTime|date:'yyyy年MM月dd日 HH时mm分ss秒'}}
+        </div>
+        <div ng-if="tabs[2].isSelect">
+
+        </div>
     </ion-content>
 </ion-view>
 <style>
@@ -43,7 +48,7 @@
         border: 0px;
     }
 
-    .user-info .btn-submit{
+    .user-info .btn-submit {
         background: #2B98F0;
         box-shadow: 0 0 4px 0 rgba(43, 152, 240, 0.60);
         border-radius: 100px;

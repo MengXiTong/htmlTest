@@ -3,11 +3,13 @@ app.controller('infoCtrl', [
     '$resource',
     'helpModalService',
     '$state',
+    '$interval',
     function (
         $scope,
         $resource,
         helpModalService,
-        $state
+        $state,
+        $interval
     ) {
         console.log("infoCtrl执行了");
         // $scope.carname = "Volvo";
@@ -44,6 +46,19 @@ app.controller('infoCtrl', [
                     $state.go('testCircular');
                 }
             },
+            iframe: {
+                name: "iframe获取子dom",
+                fun: function(){
+                    var bdhtml = window.document.body.innerHTML;
+                    console.log($("#iframeId").contents().find('body')[0].innerHTML);
+                    window.document.body.innerHTML = $("#iframeId").contents().find('body')[0].innerHTML;
+                    window.print();
+                    window.document.body.innerHTML = bdhtml;
+                    window.location.reload();
+                    // console.log(window.frames["iframeId"].contentDocument.body.innerHTML);
+                    // console.log(document.getElementById('iframeId').contentDocument.body.innerHTML);
+                }
+            }
         }
 
         /* 初始化
@@ -59,6 +74,7 @@ app.controller('infoCtrl', [
                 }
             })
             getIndicator();
+            timer = $interval(()=>$scope.currentTime = Date.now(),1000);
         }
 
         init();
@@ -196,5 +212,12 @@ app.controller('infoCtrl', [
             });
             return promise3;
         }
+
+        $scope.$on("$destroy", function () {
+            if(timer){
+                console.log("清空计时器");
+                clearTimeout(timer);
+            }
+        });
     }
 ]);
