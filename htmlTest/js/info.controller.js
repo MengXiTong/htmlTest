@@ -4,12 +4,14 @@ app.controller('infoCtrl', [
     'helpModalService',
     '$state',
     '$interval',
+    '$ionicScrollDelegate',
     function (
         $scope,
         $resource,
         helpModalService,
         $state,
-        $interval
+        $interval,
+        $ionicScrollDelegate
     ) {
         console.log("infoCtrl执行了");
         // $scope.carname = "Volvo";
@@ -49,14 +51,16 @@ app.controller('infoCtrl', [
             iframe: {
                 name: "iframe获取子dom",
                 fun: function(){
-                    var bdhtml = window.document.body.innerHTML;
+                    // var bdhtml = window.document.body.innerHTML;
                     console.log($("#iframeId").contents().find('body')[0].innerHTML);
                     window.document.body.innerHTML = $("#iframeId").contents().find('body')[0].innerHTML;
                     window.print();
-                    window.document.body.innerHTML = bdhtml;
+                    // window.document.body.innerHTML = bdhtml;
                     window.location.reload();
                     // console.log(window.frames["iframeId"].contentDocument.body.innerHTML);
                     // console.log(document.getElementById('iframeId').contentDocument.body.innerHTML);
+                    // console.log($('#dom1')[0].innerHTML);
+                    // console.log(document.getElementById('dom1').innerHTML);
                 }
             }
         }

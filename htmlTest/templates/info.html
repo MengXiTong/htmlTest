@@ -8,7 +8,7 @@
                 <a class="ui-tab-son" ng-class="item.isSelect?'tab-select':'tab-unselect'">{{item.name}}</a>
             </div>
         </div>
-        <div ng-if="tabs[0].isSelect">
+        <div ng-if="tabs[0].isSelect" id="dom1">
             <iframe id="iframeId" ng-src="login.html"></iframe>
             <div class="btn-submit" ng-click="value.fun()" ng-repeat="(key, value) in study">{{value.name}}</div>
         </div>
