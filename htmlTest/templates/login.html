@@ -41,8 +41,7 @@
                         <a>获取验证码</a>
                     </div>
                     <div class="ver-center radio">
-                        <img src="../img/1-2-4.png">
-                        记住手机号
+                        <img src="../img/1-2-4.png"> 记住手机号
                     </div>
                     <div class="btn">登录</div>
                 </div>
@@ -51,5 +50,13 @@
         </div>
     </div>
 </body>
+
+<script>
+    window.addEventListener('message', function (e) {
+        if (e.data.print) {
+            window.print();
+        }
+    }, false);
+</script>
 
 </html>

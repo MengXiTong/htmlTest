@@ -15,8 +15,11 @@
         <div ng-if="tabs[1].isSelect">
             当前时间： {{currentTime|date:'yyyy年MM月dd日 HH时mm分ss秒'}}
         </div>
-        <div ng-if="tabs[2].isSelect">
-
+        <div ng-if="tabs[2].isSelect" class="es6">
+            <div class="title">const</div>
+            <div class="content">
+                输出一个const:<span>{{es6.testConst.printValue()}}</span>
+            </div>
         </div>
     </ion-content>
 </ion-view>
@@ -59,5 +62,19 @@
         width: 220px;
         margin: 0 auto;
         margin-top: 20px;
+    }
+
+    .user-info .es6 .title{
+        margin-left: 10px;
+        font-size: 18px;
+    }
+
+    .user-info .es6 .content{
+        margin-left: 20px;
+        font-size: 14px;
+    }
+
+    .user-info .es6 .content > span{
+        color: red;
     }
 </style>

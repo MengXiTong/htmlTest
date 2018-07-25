@@ -18,7 +18,7 @@ app.controller('infoCtrl', [
         $scope.tabs = [
             { name: '测试' },
             { name: 'Tab2' },
-            { name: 'Tab3' }
+            { name: 'ES6' }
         ];
 
         $scope.oper = {
@@ -52,15 +52,32 @@ app.controller('infoCtrl', [
                 name: "iframe获取子dom",
                 fun: function(){
                     // var bdhtml = window.document.body.innerHTML;
-                    console.log($("#iframeId").contents().find('body')[0].innerHTML);
-                    window.document.body.innerHTML = $("#iframeId").contents().find('body')[0].innerHTML;
-                    window.print();
+                    // console.log($("#iframeId").contents().find('body')[0].innerHTML);
+                    // window.document.body.innerHTML = $("#iframeId").contents().find('body')[0].innerHTML;
+                    // window.print();
                     // window.document.body.innerHTML = bdhtml;
-                    window.location.reload();
+                    // window.location.reload();
                     // console.log(window.frames["iframeId"].contentDocument.body.innerHTML);
                     // console.log(document.getElementById('iframeId').contentDocument.body.innerHTML);
                     // console.log($('#dom1')[0].innerHTML);
                     // console.log(document.getElementById('dom1').innerHTML);
+                    document.querySelector('#iframeId').contentWindow.postMessage({print: true}, '*');
+                }
+            },
+            luoJiFei: {
+                name: "逻辑非",
+                fun: function(){
+                    var a = (-1)||1;
+                    console.log(a);
+                }
+            }
+        }
+
+        $scope.es6 = {
+            testConst:{
+                printValue: function(){
+                    const a = "大家好，我是静态变量Const";
+                    return a;
                 }
             }
         }
@@ -143,6 +160,7 @@ app.controller('infoCtrl', [
                 $.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js', function (_result) {
                     if (remote_ip_info.ret == '1') {
                         cityName = remote_ip_info.city;
+                        console.log(cityName);
                     }
                     $.ajax({
                         url: "http://api.map.baidu.com/telematics/v3/weather",
