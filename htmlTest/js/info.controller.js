@@ -5,13 +5,15 @@ app.controller('infoCtrl', [
     '$state',
     '$interval',
     '$ionicScrollDelegate',
+    'activeService',
     function (
         $scope,
         $resource,
         helpModalService,
         $state,
         $interval,
-        $ionicScrollDelegate
+        $ionicScrollDelegate,
+        activeService
     ) {
         console.log("infoCtrl执行了");
         // $scope.carname = "Volvo";
@@ -69,6 +71,12 @@ app.controller('infoCtrl', [
                 fun: function(){
                     var a = (-1)||1;
                     console.log(a);
+                }
+            },
+            es6Class: {
+                name: "es6Class写的Controller",
+                fun: ()=>{
+                    $state.go('es6Class');
                 }
             }
         }

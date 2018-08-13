@@ -2,8 +2,8 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
-    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular-resource.min.js"></script>
+    <script src="../lib/angular/angular.js"></script>
+    <script src="../lib/angular-resource/angular-resource.js"></script>
     <link href="https://cdn.bootcss.com/ionic/1.3.2/css/ionic.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/ionic/1.3.2/js/ionic.bundle.min.js"></script>
     <script src="http://common-cdn.jyx365.top/js/jquery-1.11.2.min.js "></script>
@@ -31,37 +31,13 @@
         }
 
     }]);
-    app.config(($stateProvider, $urlRouterProvider) => {
-        $stateProvider
-            .state('user', {
-                cache: false,
-                url: '/user',
-                templateUrl: 'show.html',
-                controller: 'myCtrl'
-            });
-        $urlRouterProvider.otherwise('/user');
-    })
-        .config(($stateProvider) => {
-            $stateProvider
-                .state('info', {
-                    cache: true,
-                    url: '/info',
-                    templateUrl: 'info.html',
-                    controller: 'infoCtrl'
-                })
-        })
-        .config(($stateProvider) => {
-            $stateProvider
-                .state('testCircular', {
-                    cache: true,
-                    url: '/testCircular',
-                    templateUrl: 'testCircular.html',
-                    controller: 'testCircularCtrl'
-                })
-        })
 </script>
+<script src="../js/ionicTest.routes.js"></script>
 <script src="../js/info.controller.js"></script>
 <script src="../js/testCircular.controller.js"></script>
 <script src="../js/help.modal.service.js"></script>
+<script src="../js/active.service.js"></script>
+<script src="../js/tab.component.js"></script>
+<script src="../js/es6Class.controller.js"></script>
 
 </html>
