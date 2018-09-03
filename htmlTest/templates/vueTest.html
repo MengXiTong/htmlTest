@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <title>vue测试</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ subString3 }}</p>
+        <input type="text" v-model='message' style="width: 100%;">
+        <p v-if="seen">现在你看到我了</p>
+        <ol>
+            <li v-for="item in todoes">{{item.text}}</li>
+        </ol>
+        <button @click="reverseMessage()">监听</button>
+        <todo-item v-for="item in todoes" :todo="item"></todo-item>
+        <p>{{showText('啦啦啦啦啦啦啦啦啦了')}}</p>
+        <button @click="txtShow()" style="padding: 10px 20px;background: lightblue;display: inline-block;">按钮</button>
+        <input type="text" style="width: 200px;height: 20px" v-model="inputText" @keyup.enter="showInput" placeholder="请输入...">
+        <div>
+            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+            <label for="jack">Jack</label>
+            <input type="checkbox" id="john" value="John" v-model="checkedNames">
+            <label for="john">John</label>
+            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+            <label for="mike">Mike</label>
+            <br>
+            <span>Checked names: {{ checkedNames }}</span>
+        </div>
+        <!-- for 属性规定 label 与哪个表单元素绑定。 -->
+        <div>
+            <input type="radio" id="one" value="One" v-model="picked">
+            <label for="one">One</label>
+            <br>
+            <input type="radio" id="two" value="Two" v-model="picked">
+            <label for="two">Two</label>
+            <br>
+            <span>Picked: {{ picked }}</span>
+        </div>
+        <div>
+            <select v-model="selected">
+                <option disabled value="">请选择</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>Selected: {{ selected }}</span>
+        </div>
+        <click-demo></click-demo>
+        <click-demo></click-demo>
+        <click-demo></click-demo>
+    </div>
+    <div id='page'>
+    </div>
+    <script src="../js/vueTest.js"></script>
+</body>
+
+</html>
