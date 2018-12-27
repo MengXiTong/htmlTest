@@ -7,14 +7,17 @@
 
 <body>
     <div id="app">
+        <base-header :title='title' ref='vueTest'></base-header>
         <p>{{ subString3 }}</p>
         <input type="text" v-model='message' style="width: 100%;">
         <p v-if="seen">现在你看到我了</p>
-        <ol>
-            <li v-for="item in todoes">{{item.text}}</li>
+        <ol style="background:yellowgreen">
+            <li v-for="item in todoes" :key="item.text" :style="{color:item.color}">{{item.text}}</li>
         </ol>
         <button @click="reverseMessage()">监听</button>
-        <todo-item v-for="item in todoes" :todo="item"></todo-item>
+        <todo-item v-for="(item, index) in todoes" v-bind="item" style="background: yellowgreen;color:white">
+            {{'科目'+index+'：'}}
+        </todo-item>
         <p>{{showText('啦啦啦啦啦啦啦啦啦了')}}</p>
         <button @click="txtShow()" style="padding: 10px 20px;background: lightblue;display: inline-block;">按钮</button>
         <input type="text" style="width: 200px;height: 20px" v-model="inputText" @keyup.enter="showInput" placeholder="请输入...">
@@ -50,6 +53,24 @@
         <click-demo></click-demo>
         <click-demo></click-demo>
         <click-demo></click-demo>
+        <base-checkbox v-model='lovingVue'></base-checkbox>
+        <button @click='showLovingVue()'>showLovingVue</button>
+        <div style="margin-top: 10px;background: #FF00FF">
+            <button v-on:click="show = !show">
+                Toggle
+            </button>
+            <transition name="fade">
+                <p v-if="show">hello</p>
+            </transition>
+        </div>
+        <div id="example-2">
+            <button @click="show = !show">Toggle show</button>
+            <transition name="bounce">
+                <p v-if="show">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia diam fermentum
+                    id. Pellentesque habitant morbi tristique senectus et netus.</p>
+            </transition>
+        </div>
+        <anchored-heading :level="2">Hello world!</anchored-heading>
     </div>
     <div id='page'>
     </div>
@@ -57,3 +78,42 @@
 </body>
 
 </html>
+
+<style>
+    .content {
+        text-align: center;
+        background: #FFF;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity .5s;
+    }
+
+    .fade-enter,
+    .fade-leave-to {
+        opacity: 0;
+    }
+
+    .bounce-enter-active {
+        animation: bounce-in .5s;
+    }
+
+    .bounce-leave-active {
+        animation: bounce-in .5s reverse;
+    }
+
+    @keyframes bounce-in {
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            transform: scale(1.5);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+</style>

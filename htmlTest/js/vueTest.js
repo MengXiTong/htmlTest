@@ -10,12 +10,56 @@
 //     },
 //     template: "<button @click='count++'>You clicked me {{ count }} times.</button>'"
 // })
+Vue.component('base-checkbox', {
+    model: {
+        prop: 'checked',
+        event: 'change'
+    },
+    props: {
+        checked: Boolean
+    },
+    template: `
+      <input
+        type="checkbox"
+        v-bind:checked="checked"
+        v-on:change="$emit('change', $event.target.checked)"
+      >
+    `
+});
+
+Vue.component('anchored-heading', {
+    render: function (createElement) {
+        return createElement(
+            'h' + this.level,   // tag name 标签名称
+            this.$slots.default // 子组件中的阵列
+        )
+    },
+    props: {
+        level: {
+            type: Number,
+            required: true
+        }
+    }
+});
 
 const todoItem = {
+    inheritAttrs: false,
     props: {
-        todo: String
+        text: String
     },
-    template: "<input type='text' v-model='todo.text' style='width:100%;'>"
+    methods: {
+        changeString() {
+            this.text = this.text.substring(0, this.text.length - 1 || 1);
+        }
+    },
+    template: `<div style='width:100%' v-bind='$attrs'>
+                <slot></slot><br>
+                <input type='text' v-model='text' style='width:50%;'/>
+                <button @click='changeString()' style='width:50%;'>改变</button>
+               </div>`,
+    // created(){
+    //     this.$emit('update:text', this.text);
+    // }
 }
 
 const clickDemo = {
@@ -33,16 +77,19 @@ var app = new Vue({
         message: 'Hello World!',
         seen: true,
         todoes: [
-            { text: '语文' },
-            { text: '数学' },
-            { text: '英语' },
-            { text: '化学' },
-            { text: '物理' }
+            { text: '语文', color: '#FFF' },
+            { text: '数学', color: '#000' },
+            { text: '英语', color: '#FF00FF' },
+            { text: '化学', color: '#FFFF00' },
+            { text: '物理', color: '#00FF00' }
         ],
         inputText: '',
         checkedNames: [],
         picked: '',
-        selected: []
+        selected: [],
+        lovingVue: false,
+        title: 'vue测试',
+        show: true
     },
     watch: {
         message(newValue, oldValue) {
@@ -63,11 +110,33 @@ var app = new Vue({
         showInput() {
             console.log("按了回车");
             alert(this.inputText);
+        },
+        showLovingVue() {
+            console.log(this.lovingVue);
         }
     },
     components: {
         todoItem,
-        clickDemo
+        clickDemo,
+        //异步组件
+        baseHeader: (resolve, reject) => {
+            resolve({
+                data() { },
+                props: {
+                    title: String
+                },
+                methods: {},
+                provide() {
+                    return {
+                        getTitle: this.title
+                    }
+                },
+                template: `<div class="content">{{title}}</div>`
+            })
+        }
+    },
+    created() {
+        console.log(this);
     }
 });
 var show = {
