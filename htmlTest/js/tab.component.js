@@ -8,10 +8,12 @@ app.component("tab", {
             "ngInject";
             this.$resource = $resource;
             this.$rootScope = $rootScope;
-            console.log("执行了tab");
+            // console.log(this.$rootScope);
+            console.log("执行了constructor");
         }
 
         $onInit() {
+            console.log("执行了onInit");
         }
 
         //返回
