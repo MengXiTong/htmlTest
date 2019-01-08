@@ -3,6 +3,7 @@
         我是用户信息界面
     </ion-header-bar>
     <ion-content>
+        <!-- <div class="box"></div> -->
         <div class="row ui-tab pd-0">
             <div class="col pd-0" ng-repeat="item in tabs" ng-click="oper.tabSelect($index)">
                 <a class="ui-tab-son" ng-class="item.isSelect?'tab-select':'tab-unselect'">{{item.name}}</a>
@@ -18,7 +19,8 @@
         <div ng-if="tabs[2].isSelect" class="es6">
             <div class="title">const</div>
             <div class="content">
-                输出一个const:<span>{{es6.testConst.printValue()}}</span>
+                输出一个const:
+                <span>{{es6.testConst.printValue()}}</span>
             </div>
         </div>
         <tab id="12"></tab>
@@ -65,17 +67,40 @@
         margin-top: 20px;
     }
 
-    .user-info .es6 .title{
+    .user-info .es6 .title {
         margin-left: 10px;
         font-size: 18px;
     }
 
-    .user-info .es6 .content{
+    .user-info .es6 .content {
         margin-left: 20px;
         font-size: 14px;
     }
 
-    .user-info .es6 .content > span{
+    .user-info .es6 .content>span {
         color: red;
     }
+
+    .user-info .box {
+        width: 200px;
+        height: 200px;
+        background: #00ff00;
+        display: flex;
+    }
+
+    .user-info .box::before {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        background: #ff00ff;
+    }
+
+    /* .user-info .box>div {
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        background: #ff0000;
+    } */
 </style>
